@@ -14,7 +14,8 @@ const Manage = () => {
 
     const fetchStudent=async()=>{
        try{
-        const res= await axios.get("http://localhost:5000/students")
+        // const res= await axios.get("http://localhost:5000/students")
+        const res= await axios.get("https://student-management-server-qog1.onrender.com/students")
         setStudents(res.data)
        } catch(error){
         console.error("Error")
@@ -22,7 +23,8 @@ const Manage = () => {
     }
 
     const deleteStudent= async(id)=>{       
-            await axios.delete(`http://localhost:5000/students/${id}`)
+            // await axios.delete(`http://localhost:5000/students/${id}`)
+            await axios.delete(`https://student-management-server-qog1.onrender.com/students/${id}`)
             fetchStudent()
     }
 

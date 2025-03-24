@@ -22,7 +22,8 @@ const Dashboard = () => {
   }, []);
 
   const fetchStudent = async () => {
-    const res = await axios.get("http://localhost:5000/students");
+    // const res = await axios.get("http://localhost:5000/students");
+    const res = await axios.get("https://student-management-server-qog1.onrender.com/students");
     setStudents(res.data);
   };
 
