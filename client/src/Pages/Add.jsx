@@ -28,10 +28,20 @@ const Add = () => {
 
     const handleSubmit=async(e)=>{
         e.preventDefault()
-        // await axios.post("http://localhost:5000/student",studentData);
-        await axios.post("https://student-management-server-qog1.onrender.com/student",studentData);
-        navigate("/manage")
-    }
+        try {
+            if(studentId){
+                // await axios.put(`http://localhost:5000/students/${studentId}`,studentData)
+                await axios.put(`https://student-management-server-qog1.onrender.com/students/${studentId}`,studentData)
+            }else{
+                 // await axios.post("http://localhost:5000/student",studentData);
+                await axios.post("https://student-management-server-qog1.onrender.com/student",studentData);
+            }
+            navigate("/manage");
+        } catch(error){
+            console.log(error)
+        }
+       
+    };
 
   return (
     <div className='flex h-screen bg-gray-900 text-white'>
